@@ -1,83 +1,58 @@
-function showq1(){
-  document.getElementById("question2").className = 'hide';
-  document.getElementById("question3").className = 'hide';
-  document.getElementById("question1").className = 'visible';
-}
+var correct = document.getElementById("success");
+var incorrect = document.getElementById("fail");
 
-function showq2(){
-  document.getElementById("question1").className = 'hide';
-  document.getElementById("question3").className = 'hide';
-  document.getElementById("question2").className = 'visible';
-}
+var currentPage = 1;
 
-function showq3(){
-  document.getElementById("question1").className = 'hide';
-  document.getElementById("question2").className = 'hide';
-  document.getElementById("question3").className = 'visible';
-}
-
-var score = 0;
-
-showq1();
-
-function given_answer(){
-  return document.getElementById("answer1").value;
-}
-
-function is_correct_answer(answer1_text){
-  if (answer1_text == 1){
-    return true;
-  } else {
-   return false;
+function change_question() {
+  if (currentPage == 1) {
+    question1.className = "visible";
+    question2.className = "hide";
+    question3.className = "hide";
+    current += 1;
+  } else if (currentPage == 2) {
+    question1.className = "hide";
+    question2.className = "visible";
+    question3.className = "hide";
+    current += 1;
+  } else if (currentPage == 3){
+    question1.className = "hide";
+    question2.className = "hide";
+    question3.className = "visible";
   }
-}
 
-function update_question_result(correct){
-  if (correct){
-    score++;
-    return document.getElementById("question_result").innerText = "Success!";
-  } else {
-   return document.getElementById("question_result").innerText = "Wrong!";
+  function check_answer1() {
+    var input_question1 = document.getElementById("question1_anwer").value;
+  
+    if (input_question1 == 2) {
+      correct.className = "visible";
+    } else {
+      incorrect.className = "visible";
+    }
   }
-}
-
-function process_answer_submission(){
-  var user_answer = given_answer();
-   update_question_result(is_correct_answer(user_answer));
-}
-
-document.getElementById("submitter").onclick = process_answer_submission;
-document.getElementById("next").onclick = showq2;
-
-
-function given_answer(){
-  return document.getElementById("answer2").value;
-}
-
-function is_correct_answer(answer2_text){
-  if (answer2_text == 2){
-    return true;
-  } else {
-   return false;
+  
+  function check_answer2() {
+    var input_question2 = document.getElementById("question2_anwer").value;
+  
+    if (input_question2 == 4) {
+      correct.className = "visible";
+    } else {
+      incorrect.className = "visible";
+    }
   }
-}
-
-function update_question_result(correct){
-  if (correct){
-    score++;
-    return document.getElementById("question_result").innerText = "Success!";
-  } else {
-   return document.getElementById("question_result").innerText = "Wrong!";
+  
+  function check_answer3() {
+    var input_question3 = document.getElementById("question3_anwer").value;
+  
+    if (input_question3 == 1) {
+      correct.className = "visible";
+    } else {
+      incorrect.className = "visible";
+    }
   }
-}
 
-function process_answer_submission(){
-  var user_answer = given_answer();
-   update_question_result(is_correct_answer(user_answer));
-}
+  document.getElementById("next_button").onclick = change_question;
+  
+  document.getElementById("question1_submit").onclick = check_answer1;
+  document.getElementById("question2_submit").onclick = check_answer2;
+  document.getElementById("question3_submit").onclick = check_answer3;
 
-document.getElementById("submitter").onclick = process_answer_submission;
-document.getElementById("next").onclick = showq3;
-
- // var percent= (score/5) * 100;
-//  document.getElementById("total_result").innerText = ("You answered " + score + " of 5 questions correctly, good for " + percent + "%!");
