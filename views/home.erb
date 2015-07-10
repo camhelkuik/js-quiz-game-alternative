@@ -6,11 +6,12 @@
   </head>
   <body>
     <div id= "quiz">
-      <div id= "question1">
-        <h3><%= @q1.question %></h3>
+    <%= binding.pry %>
+      <div id= "question<%= @question[id] %>">
+        <h3> <%= @question.question %> </h3>
         <ul>
-          <% @c1.each do |choice| %>
-          <li><%=@c1.choice%></li>
+          <% @choice.each do |option| %>
+          <li><%=@choice["option"]%></li>
           <% end %>
         </ul>
         <input id= "question1_answer" type= "text"></input>
@@ -18,7 +19,7 @@
         <button id="next_button1" type="button">Next</button>
       </div>
       
-      <div id= "question2">
+      <!-- <div id= "question2">
         <h3><%= @q2.question %></h3>
         <ul>
           <% @c2.each do |choice| %>
@@ -29,7 +30,7 @@
         <input id= "question2_submit" type= "submit"></input>
         <button id="next_button2" type="button">Next</button>
       </div>
-      
+
       <div id= "question3">
        <h3><%= @q3.question %></h3>
        <ul>
@@ -41,7 +42,7 @@
         <input id= "question3_submit" type= "submit"></input>
         <button id="next_button3" type="button">Next</button>
       </div>
-    
+
       <div id= "question4">
        <h3><%= @q4.question %></h3>
        <ul>
@@ -53,7 +54,7 @@
         <input id= "question4_submit" type= "submit"></input>
         <button id="show_score" type="button">Score</button>
       </div>
-    </div>
+    </div> -->
     
     <div id="answer_section">
         <p class="hide" id="success">Success!</p>

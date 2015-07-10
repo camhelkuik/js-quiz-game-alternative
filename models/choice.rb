@@ -9,9 +9,9 @@ class Choice
   attr_reader :id, :question_id, :choice
   
   def initialize(options={})
-    @id = options = ["id"]
-    @question_id = options = ["question_id"]
-    @choice = options = ["choice"]
+    @id = options["id"]
+    @question_id = options["question_id"]
+    @choice = options["choice"]
   end
   
 end

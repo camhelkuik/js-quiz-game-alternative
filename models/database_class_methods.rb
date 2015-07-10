@@ -59,7 +59,7 @@ module DatabaseClassMethods
   #
   # Returns an Array containing the Hash of the rows.
   def find_rows(field_name, record_id)    
-    results = CONNECTION.execute("SELECT * FROM #{self.table_name} WHERE #{field_name} = #{record_id}")
+    results = CONNECTION.execute("SELECT * FROM #{self.table_name} WHERE '#{field_name}' = #{record_id}")
    
     return self.results_as_objects(results) 
   end
