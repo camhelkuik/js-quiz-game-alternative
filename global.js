@@ -2,7 +2,6 @@ var correct = document.getElementById("success");
 var incorrect = document.getElementById("fail");
 
 var score = 0;
-var percent = (score/4) * 100;
 
 function show_question1() {
     question1.className = "visible";
@@ -88,6 +87,7 @@ function show_question4(){
     }
 
     function final_score(){
+      var percent = (score/4) * 100;
       return document.getElementById("total_result").innerText = ("You answered " + score + " of 4 questions correctly, good for " + percent + "%!");
     }
   
