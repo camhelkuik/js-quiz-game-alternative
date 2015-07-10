@@ -1,17 +1,17 @@
 require_relative "database_class_methods"
 require_relative "database_instance_methods"
 
-class Question
+class Choice
   
   include DatabaseInstanceMethods
   extend DatabaseClassMethods
   
-  attr_reader :id, :question, :answer
+  attr_reader :id, :question_id, :choice
   
   def initialize(options={})
-  @id = options = ["id"]
-  @question = options = ["question"]
-  @answer = options = ["answer"]
+    @id = options = ["id"]
+    @question_id = options = ["question_id"]
+    @choice = options = ["choice"]
   end
   
 end
