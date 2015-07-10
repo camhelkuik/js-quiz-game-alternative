@@ -87,6 +87,9 @@ function show_question4(){
       incorrect.className = "hide";
     }
 
+    function final_score(){
+      return document.getElementById("total_result").innerText = ("You answered " + score + " of 4 questions correctly, good for " + percent + "%!");
+    }
   
   show_question1();
   
@@ -98,5 +101,4 @@ function show_question4(){
   document.getElementById("next_button1").onclick = show_question2;  
   document.getElementById("next_button2").onclick = show_question3;  
   document.getElementById("next_button3").onclick = show_question4;      
-
-  document.getElementById("total_result").innerText = ("You answered " + score + " of 5 questions correctly, good for " + percent + "%!");
+  document.getElementById("show_score").onclick = final_score;
